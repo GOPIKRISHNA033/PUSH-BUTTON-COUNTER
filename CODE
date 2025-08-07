@@ -1,0 +1,38 @@
+const int buttonPin = 2;      // Push button connected to pin 2
+const int tempPin = A0;       // LM35 connected to analog pin A0
+
+int buttonState = 0;
+int lastButtonState = 0;
+int count = 0;
+
+void setup() {
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600);
+  Serial.println("Push Button Counter with Temperature Sensor");
+  delay(1000);
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin);
+
+  // Button press detection (edge)
+  if (buttonState == HIGH && lastButtonState == LOW) {
+    count++;
+    delay(200); // Debounce delay
+  }
+  lastButtonState = buttonState;
+
+  // Read temperature from LM35
+  int tempReading = analogRead(tempPin);
+  float voltage = tempReading * (5.0 / 1023.0); // Convert to voltage
+  float temperatureC = voltage * 100; // Convert to °C
+
+  // Print to Serial Monitor
+  Serial.print("Button Count: ");
+  Serial.print(count);
+  Serial.print(" | Temperature: ");
+  Serial.print(temperatureC);
+  Serial.println(" °C");
+
+  delay(500); // Update rate
+}
