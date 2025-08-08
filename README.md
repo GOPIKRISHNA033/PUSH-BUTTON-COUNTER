@@ -1,5 +1,5 @@
 
-##PUSH-BUTTON-COUNTER
+## PUSH-BUTTON-COUNTER
 
 COMPANY: CODTECH IT SOLUTIONS
 
@@ -13,7 +13,7 @@ DURATION: 4 WEEEKS
 
 MENTOR: NEELA SANTOSH
 
-##OUTPUT
+## OUTPUT
 
 
 ![Image](https://github.com/user-attachments/assets/1bc45c5e-72d3-4539-8038-195ff5948cf0)
